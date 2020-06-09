@@ -32,18 +32,18 @@ struct ContentView: View {
     
     func validate() {}
     func login() {
-        //let URL = "https://api.github.com/users/\(github)/repos"
-        let URL = "https://api.github.com/users/diegosoriarios/repos"
+        let URL = "https://api.github.com/users/\(github)/repos"
         
-        fetchRepositories(urlString: URL) { (repositories, err) in
-            if let err = err {
-                print("Failed to search repositories", err)
-                return
+        fetchRepositories(urlString: URL) { (res) in
+            switch res {
+                case .success(let repositories):
+                    repositories.forEach({ (repository) in
+                    print(repository)
+                        
+                })
+                case .failure(let err):
+                    print("Failed to find repository", err)
             }
-            
-            repositories?.forEach({ (repository) in
-                print(repository)
-            })
         }
     }
 }

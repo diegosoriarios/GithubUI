@@ -15,21 +15,21 @@ struct Repository: Decodable {
     let language: String
 }
 
-func fetchRepositories(urlString: String, completion: @escaping ([Repository]?, Error?) -> ()) {
+func fetchRepositories(urlString: String, completion: @escaping (Result<[Repository], Error>) -> ()) {
     
     guard let url = URL(string: urlString) else { return }
     
     URLSession.shared.dataTask(with: url) { (data, resp, err) in
         if let err = err {
-            completion(nil, err)
+            completion(.failure(err))
             return
         }
         
         do {
             let repository = try JSONDecoder().decode([Repository].self, from: data!)
-            completion(repository, nil)
+            completion(.success(repository))
         } catch let jsonError {
-            completion(nil, jsonError)
+            completion(.failure(jsonError))
         }
         
         
