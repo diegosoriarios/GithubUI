@@ -15,6 +15,8 @@ struct Repository: Decodable {
     let language: String
 }
 
+var githubText: String = ""
+
 func fetchRepositories(urlString: String, completion: @escaping (Result<[Repository], Error>) -> ()) {
     
     guard let url = URL(string: urlString) else { return }

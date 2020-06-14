@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @State var github = ""
     @State var error: String?
+    @State var selection: Int? = nil
     
     var body: some View {
         NavigationView{
@@ -19,9 +20,11 @@ struct ContentView: View {
                     .padding()
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.emailAddress)
-                Button(action: login) {
-                    Text("Sign In")
-                }.disabled(error != nil)
+                NavigationLink(destination: ListView(), tag: 1, selection: $selection) {
+                    Button(action: changeSelection) {
+                        Text("Sign In")
+                    }.disabled(error != nil)
+                }
                 
                 error.flatMap {
                     Text("Error \($0)").foregroundColor(.red)
@@ -31,21 +34,11 @@ struct ContentView: View {
     }
     
     func validate() {}
-    func login() {
-        let URL = "https://api.github.com/users/\(github)/repos"
-        
-        fetchRepositories(urlString: URL) { (res) in
-            switch res {
-                case .success(let repositories):
-                    repositories.forEach({ (repository) in
-                    print(repository)
-                        
-                })
-                case .failure(let err):
-                    print("Failed to find repository", err)
-            }
-        }
+    func changeSelection() {
+        githubText = github
+        self.selection = 1
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
