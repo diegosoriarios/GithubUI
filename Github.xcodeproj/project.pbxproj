@@ -15,6 +15,7 @@
 		874AA2B8248D2D7B00AAE28A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 874AA2B6248D2D7B00AAE28A /* LaunchScreen.storyboard */; };
 		876AD862249691E300FFE2F9 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876AD861249691E300FFE2F9 /* ListView.swift */; };
 		87932598248FFEE9000FBDA6 /* GithubRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87932597248FFEE9000FBDA6 /* GithubRequest.swift */; };
+		87CE6F3824D89A34001056C7 /* GithubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CE6F3724D89A34001056C7 /* GithubViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		874AA2B9248D2D7B00AAE28A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		876AD861249691E300FFE2F9 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		87932597248FFEE9000FBDA6 /* GithubRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRequest.swift; sourceTree = "<group>"; };
+		87CE6F3724D89A34001056C7 /* GithubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				874AA2B3248D2D7B00AAE28A /* Preview Content */,
 				87932597248FFEE9000FBDA6 /* GithubRequest.swift */,
 				876AD861249691E300FFE2F9 /* ListView.swift */,
+				87CE6F3724D89A34001056C7 /* GithubViewModel.swift */,
 			);
 			path = Github;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				874AA2AC248D2D7A00AAE28A /* AppDelegate.swift in Sources */,
 				874AA2AE248D2D7A00AAE28A /* SceneDelegate.swift in Sources */,
 				876AD862249691E300FFE2F9 /* ListView.swift in Sources */,
+				87CE6F3824D89A34001056C7 /* GithubViewModel.swift in Sources */,
 				87932598248FFEE9000FBDA6 /* GithubRequest.swift in Sources */,
 				874AA2B0248D2D7A00AAE28A /* ContentView.swift in Sources */,
 			);

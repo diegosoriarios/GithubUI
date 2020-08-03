@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewModel: GithubViewModel
     @State var github = ""
     @State var error: String?
     @State var selection: Int? = nil
@@ -20,7 +21,7 @@ struct ContentView: View {
                     .padding()
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.emailAddress)
-                NavigationLink(destination: ListView(), tag: 1, selection: $selection) {
+                NavigationLink(destination: ListView(viewModel: viewModel), tag: 1, selection: $selection) {
                     Button(action: changeSelection) {
                         Text("Sign In")
                     }.disabled(error != nil)
@@ -37,12 +38,15 @@ struct ContentView: View {
     func changeSelection() {
         githubText = github
         self.selection = 1
+        viewModel.fetchRepositories(urlString: github, completion: {_ in
+            
+        } )
     }
     
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: GithubViewModel())
     }
 }

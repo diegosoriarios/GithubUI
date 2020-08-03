@@ -9,44 +9,30 @@
 import SwiftUI
 
 struct ListView: View {
-    var repositories: Array<Repository> = []
+    @ObservedObject var viewModel: GithubViewModel
     
     @ViewBuilder
     var body: some View {
-        if repositories.count > 0 {
+        if self.viewModel.repositories.count > 0 {
             NavigationView {
                 List {
-                    Text(repositories[0].name)
-                    Text("Hello World")
-                    Text("Hello World")
+                    ForEach(self.viewModel.repositories ) { repository in
+                        Text(repository.name)
+                        
+                    }
                 }
                 .navigationBarTitle("Repositories")
             }
         } else {
-            Text("Loading").onAppear { self.login() }
+            Text("Loading")
         }
     }
-    
-    func login() {
-        let URL = "https://api.github.com/users/\(githubText)/repos"
-        
-        fetchRepositories(urlString: URL) { (res) in
-            switch res {
-                case .success(let repositories):
-                    repositories.forEach({ (repository) in
-                    print(repository)
-                        
-                })
-                case .failure(let err):
-                    print("Failed to find repository", err)
-            }
-        }
-    }
+
 }
 
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        ListView(viewModel: GithubViewModel())
     }
 }
