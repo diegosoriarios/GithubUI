@@ -32,7 +32,9 @@ class GithubViewModel: ObservableObject {
             
             do {
                 let repository = try JSONDecoder().decode([Repository].self, from: data!)
-                self.repositories = repository
+                DispatchQueue.main.async {
+                    self.repositories = repository
+                }
                 //completion(.success(repository))
             } catch let jsonError {
                 completion(.failure(jsonError))
