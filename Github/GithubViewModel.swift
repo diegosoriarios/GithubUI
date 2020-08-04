@@ -14,11 +14,12 @@ class GithubViewModel: ObservableObject {
     struct Repository: Decodable, Identifiable {
         let id: Int
         let name: String
-        let description: String
-        let language: String
+        let description: String?
+        let language: String?
     }
 
     func fetchRepositories(urlString username: String, completion: @escaping (Result<[Repository], Error>) -> ()) {
+        self.repositories = []
         
         let urlString = "https://api.github.com/users/\(username)/repos"
         
@@ -33,10 +34,12 @@ class GithubViewModel: ObservableObject {
             do {
                 let repository = try JSONDecoder().decode([Repository].self, from: data!)
                 DispatchQueue.main.async {
+                    print(repository)
                     self.repositories = repository
                 }
                 //completion(.success(repository))
             } catch let jsonError {
+                print("Error \(jsonError)")
                 completion(.failure(jsonError))
             }
             

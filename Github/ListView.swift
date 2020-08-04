@@ -9,30 +9,23 @@
 import SwiftUI
 
 struct ListView: View {
-    @ObservedObject var viewModel: GithubViewModel
+    @Binding var repositories: Array<GithubViewModel.Repository>
     
     @ViewBuilder
     var body: some View {
-        if self.viewModel.repositories.count > 0 {
-            NavigationView {
+        /*if repositories.count > 0 {
+            NavigationView {*/
                 List {
-                    ForEach(self.viewModel.repositories ) { repository in
+                    ForEach(repositories, id: \.id) { repository in
                         Text(repository.name)
                         
                     }
                 }
                 .navigationBarTitle("Repositories")
-            }
+            /*}
         } else {
             Text("Loading")
-        }
+        }*/
     }
 
-}
-
-
-struct ListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListView(viewModel: GithubViewModel())
-    }
 }

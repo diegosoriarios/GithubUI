@@ -21,7 +21,7 @@ struct ContentView: View {
                     .padding()
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.emailAddress)
-                NavigationLink(destination: ListView(viewModel: viewModel), tag: 1, selection: $selection) {
+                NavigationLink(destination: ListView(repositories: $viewModel.repositories), tag: 1, selection: $selection) {
                     Button(action: changeSelection) {
                         Text("Sign In")
                     }.disabled(error != nil)
