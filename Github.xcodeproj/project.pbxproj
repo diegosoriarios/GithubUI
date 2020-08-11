@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8718FF8024D9D6220000AAA2 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8718FF7F24D9D6220000AAA2 /* ImageLoader.swift */; };
 		874AA2AC248D2D7A00AAE28A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AA2AB248D2D7A00AAE28A /* AppDelegate.swift */; };
 		874AA2AE248D2D7A00AAE28A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AA2AD248D2D7A00AAE28A /* SceneDelegate.swift */; };
 		874AA2B0248D2D7A00AAE28A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AA2AF248D2D7A00AAE28A /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8718FF7F24D9D6220000AAA2 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		874AA2A8248D2D7A00AAE28A /* Github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		874AA2AB248D2D7A00AAE28A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		874AA2AD248D2D7A00AAE28A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				874AA2B3248D2D7B00AAE28A /* Preview Content */,
 				87932597248FFEE9000FBDA6 /* GithubRequest.swift */,
 				876AD861249691E300FFE2F9 /* ListView.swift */,
+				8718FF7F24D9D6220000AAA2 /* ImageLoader.swift */,
 				87CE6F3724D89A34001056C7 /* GithubViewModel.swift */,
 			);
 			path = Github;
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8718FF8024D9D6220000AAA2 /* ImageLoader.swift in Sources */,
 				874AA2AC248D2D7A00AAE28A /* AppDelegate.swift in Sources */,
 				874AA2AE248D2D7A00AAE28A /* SceneDelegate.swift in Sources */,
 				876AD862249691E300FFE2F9 /* ListView.swift in Sources */,

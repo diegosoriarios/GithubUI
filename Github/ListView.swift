@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ListView: View {
     @Binding var repositories: Array<GithubViewModel.Repository>
@@ -17,7 +18,11 @@ struct ListView: View {
             NavigationView {*/
                 List {
                     ForEach(repositories, id: \.id) { repository in
-                        Text(repository.name)
+                        Group {
+                            AsyncImage(url: URL(string: repository.image!), placeholder: Text("Loading..."))
+                                .frame(width: 50.0, height: 50.0)
+                            Text(repository.name)
+                        }
                         
                     }
                 }

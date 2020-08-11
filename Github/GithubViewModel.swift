@@ -12,16 +12,17 @@ class GithubViewModel: ObservableObject {
     @Published var repositories: Array<Repository> = []
     
     struct Repository: Decodable, Identifiable {
-        let id: Int
+        let id: String
         let name: String
-        let description: String?
-        let language: String?
+        let image: String?
+        let tag: String?
     }
 
     func fetchRepositories(urlString username: String, completion: @escaping (Result<[Repository], Error>) -> ()) {
         self.repositories = []
         
-        let urlString = "https://api.github.com/users/\(username)/repos"
+        //let urlString = "https://api.github.com/users/\(username)/repos"
+        let urlString = "https://5c2fd57e8b95c100141e7427.mockapi.io/posts"
         
         guard let url = URL(string: urlString) else { return }
         
@@ -34,12 +35,10 @@ class GithubViewModel: ObservableObject {
             do {
                 let repository = try JSONDecoder().decode([Repository].self, from: data!)
                 DispatchQueue.main.async {
-                    print(repository)
                     self.repositories = repository
                 }
                 //completion(.success(repository))
             } catch let jsonError {
-                print("Error \(jsonError)")
                 completion(.failure(jsonError))
             }
             
